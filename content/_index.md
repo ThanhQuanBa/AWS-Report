@@ -1,11 +1,10 @@
 ---
 title: "Internship Report"
-date: "`r Sys.Date()`"
+
 weight: 1
 chapter: false
 ---
 
-    
 # Internship Report
 
 {{% notice warning %}}
@@ -13,13 +12,14 @@ chapter: false
 {{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Full Name:** Quan Ba Thanh
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Phone Number:** 0961965741
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **Email:** thanhqbse180150@fpt.edu.vn
+
+&emsp; **University:** FPT University
 
 &emsp; **Major:** Information Technology
 

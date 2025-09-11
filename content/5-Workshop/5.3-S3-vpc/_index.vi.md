@@ -1,9 +1,9 @@
 ---
-title : "Truy cập S3 từ VPC"
-date :  "`r Sys.Date()`" 
-weight : 3
-chapter : false
-pre : " <b> 5.3. </b> "
+title: "Truy cập S3 từ VPC"
+
+weight: 3
+chapter: false
+pre: " <b> 5.3. </b> "
 ---
 
 #### Sử dụng Gateway endpoint

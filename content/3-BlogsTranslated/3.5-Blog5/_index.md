@@ -1,10 +1,11 @@
 ---
 title: "Blog 5"
-date: "`r Sys.Date()`"
+
 weight: 1
 chapter: false
 pre: " <b> 3.5. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
@@ -13,7 +14,7 @@ pre: " <b> 3.5. </b> "
 
 Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, _“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”_, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
 
 ---
 
@@ -25,20 +26,22 @@ This solution represents what I would consider another reasonable sprint iterati
 
 **The solution architecture is now as follows:**
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+> _Figure 1. Overall architecture; colored boxes represent distinct services._
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
+While the term _microservices_ has some inherent ambiguity, certain traits are common:
+
+- Small, autonomous, loosely coupled
+- Reusable, communicating through well-defined interfaces
+- Specialized to do one thing well
 - Often implemented in an **event-driven architecture**
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+When determining where to draw boundaries between microservices, consider:
+
+- **Intrinsic**: technology used, performance, reliability, scalability
+- **Extrinsic**: dependent functionality, rate of change, reusability
+- **Human**: team ownership, managing _cognitive load_
 
 ---
 
@@ -54,10 +57,11 @@ When determining where to draw boundaries between microservices, consider:
 
 ## The Pub/Sub Hub
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.
+
+- Each microservice depends only on the _hub_
+- Inter-microservice connections are limited to the contents of the published message
+- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous _push_
 
 Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
 
@@ -65,11 +69,12 @@ Drawback: **coordination and monitoring** are needed to avoid microservices proc
 
 ## Core Microservice
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
+Provides foundational data and communication layer, including:
+
+- **Amazon S3** bucket for data
+- **Amazon DynamoDB** for data catalog
+- **AWS Lambda** to write messages into the data lake and catalog
+- **Amazon SNS** topic as the _hub_
 - **Amazon S3** bucket for artifacts such as Lambda code
 
 > Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
@@ -78,30 +83,32 @@ Provides foundational data and communication layer, including:
 
 ## Front Door Microservice
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+- Provides an API Gateway for external REST interaction
+- Authentication & authorization based on **OIDC** via **Amazon Cognito**
+- Self-managed _deduplication_ mechanism using DynamoDB instead of SNS FIFO because:
+  1. SNS deduplication TTL is only 5 minutes
+  2. SNS FIFO requires SQS FIFO
+  3. Ability to proactively notify the sender that the message is a duplicate
 
 ---
 
 ## Staging ER7 Microservice
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute
+- Step Functions Express Workflow to convert ER7 → JSON
+- Two Lambdas:
+  1. Fix ER7 formatting (newline, carriage return)
+  2. Parsing logic
+- Result or error is pushed back into the pub/sub hub
 
 ---
 
 ## New Features in the Solution
 
 ### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
+
+Example _outputs_ in the core microservice:
+
 ```yaml
 Outputs:
   Bucket:
@@ -124,3 +131,4 @@ Outputs:
     Value: !GetAtt Catalog.Arn
     Export:
       Name: !Sub ${AWS::StackName}-CatalogArn
+```

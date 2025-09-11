@@ -1,13 +1,15 @@
 ---
-title : "Các bước chuẩn bị"
-date :  "`r Sys.Date()`" 
-weight : 2
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "Các bước chuẩn bị"
+
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
 
 #### IAM permissions
+
 Gắn IAM permission policy sau vào tài khoản aws user của bạn để triển khai và dọn dẹp tài nguyên trong workshop này.
+
 ```
 {
     "Version": "2012-10-17",
@@ -224,8 +226,8 @@ Trong lab này, chúng ta sẽ dùng N.Virginia region (us-east-1).
 
 ![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack1.png)
 
-+ Lựa chọn 2 mục acknowledgement 
-+ Chọn Create stack
+- Lựa chọn 2 mục acknowledgement
+- Chọn Create stack
 
 ![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack2.png)
 
@@ -233,10 +235,10 @@ Quá trình triển khai CloudFormation cần khoảng 15 phút để hoàn thà
 
 ![complete](/images/5-Workshop/5.2-Prerequisite/complete.png)
 
-+ 2 VPCs đã được tạo
+- 2 VPCs đã được tạo
 
 ![vpcs](/images/5-Workshop/5.2-Prerequisite/vpcs.png)
 
-+ 3 EC2s đã được tạo
+- 3 EC2s đã được tạo
 
 ![EC2](/images/5-Workshop/5.2-Prerequisite/ec2.png)
