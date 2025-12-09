@@ -1,47 +1,100 @@
 ---
 title: "Events Participated"
-
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** for your report, including this warning.
-{{% /notice %}}
+# Events Participated
 
-> In this section, you should list and describe in detail the events you have participated in during your internship or work experience.
->
-> Each event should be presented in the format Event 1, Event 2, Event 3…, along with the following details:
->
-> - Event name
-> - Date and time
-> - Location (if applicable)
-> - Your role in the event (attendee, event support, speaker, etc.)
-> - A brief description of the event’s content and main activities
-> - Outcomes or value gained (lessons learned, new skills, contribution to the team/project)
-> - This listing helps demonstrate your actual participation as well as the soft skills and experience you have gained from each event.
+## Overview
 
-During my internship, I participated in two events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
+In this section, I document the events I participated in during my internship and professional journey. Each event represents a memorable experience that contributed to my technical knowledge, professional growth, and networking within the AWS and technology community.
 
-### [Event 1](4.1-Event1/)
+## Event Summary
 
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop
-
-&emsp;**Date & Time:** 09:00, August 13, 2025
-
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City
-
-&emsp;**Role:** Attendee
+During my internship, I participated in five significant events, each offering valuable insights into cloud architecture, AI-driven development, and DevOps practices. These experiences enriched my understanding of modern AWS services and industry best practices.
 
 ---
 
-### [Event 2](4.2-Event2/)
+### [Event 1 - GenAI-powered App-DB Modernization Workshop](4.1-Event1/)
 
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop
+**Event Name:** GenAI-powered App-DB Modernization Workshop
 
-&emsp;**Date & Time:** 09:00, August 13, 2025
+**Date & Time:** 09:00 AM, August 13, 2025
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City
+**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City
 
-&emsp;**Role:** Attendee
+**Role:** Attendee
+
+**Key Topics:** Domain-Driven Design (DDD), event-driven architecture, microservices modernization, Amazon Q Developer
+
+---
+
+### [Event 2 - AI-Driven Development Life Cycle](4.2-Event2/)
+
+**Event Name:** AI-Driven Development Life Cycle: Reimagining Software Engineering
+
+**Date & Time:** Friday, October 3, 2025 (2:00 PM – 4:30 PM)
+
+**Location:** AWS Event Hall, L26 Bitexco Tower, Ho Chi Minh City
+
+**Role:** Attendee
+
+**Key Topics:** Amazon Q Developer capabilities, AI integration in SDLC, Kiro demonstration, productivity enhancement
+
+---
+
+### [Event 3 - AWS Cloud Mastery Series #1: AI/ML/GenAI on AWS](4.3-Event3/)
+
+**Event Name:** AWS Cloud Mastery Series #1: AI/ML/GenAI on AWS
+
+**Date & Time:** Saturday, November 15, 2025 (8:30 AM – 12:00 PM)
+
+**Location:** 26th Floor, Bitexco Tower, Ho Chi Minh City
+
+**Role:** Attendee
+
+**Key Topics:** Amazon SageMaker, Generative AI with Bedrock, Foundation Models, Retrieval-Augmented Generation (RAG)
+
+---
+
+### [Event 4 - AWS Cloud Mastery Series #2: DevOps on AWS](4.4-Event4/)
+
+**Event Name:** AWS Cloud Mastery Series #2: DevOps on AWS
+
+**Date & Time:** Monday, November 17, 2025 (1:00 PM – 4:30 PM)
+
+**Location:** 26th Floor, Bitexco Tower, Ho Chi Minh City
+
+**Role:** Attendee
+
+**Key Topics:** CI/CD pipelines, Blue/Green deployment, Canary releases, DevSecOps, monitoring with CloudWatch and X-Ray
+
+---
+
+### [Event 5 - AWS Cloud Mastery Series #3: AWS Well-Architected Security Pillar](4.5-Event5/)
+
+**Event Name:** AWS Cloud Mastery Series #3: AWS Well-Architected Security Pillar
+
+**Date & Time:** Saturday, November 29, 2025 (8:30 AM – 12:00 PM)
+
+**Location:** 26th Floor, Bitexco Tower, Ho Chi Minh City
+
+**Role:** Attendee
+
+**Key Topics:** IAM best practices, security detection and monitoring, data protection, incident response automation
+
+---
+
+## Key Learnings & Professional Growth
+
+Through these five events, I have:
+
+- **Deepened Technical Knowledge:** Gained hands-on understanding of cutting-edge AWS services and architectural patterns
+- **Learned Modern Development Practices:** Explored AI-driven development, event-driven architecture, and DevOps methodologies
+- **Developed Security Mindset:** Understood the importance of security-first design and compliance frameworks
+- **Enhanced Professional Network:** Connected with AWS architects, industry experts, and like-minded professionals
+- **Gained Practical Skills:** Learned to apply concepts like DDD, CI/CD pipelines, and RAG architecture in real-world scenarios
+
+These events have been instrumental in shaping my career trajectory and reinforcing my commitment to cloud-native development and enterprise architecture.

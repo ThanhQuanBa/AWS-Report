@@ -1,8 +1,8 @@
 ---
 title: "Blog 3"
-weight: 1
+weight: 3
 chapter: false
-pre: " <b> 3.1. </b> "
+pre: " <b> 3.3. </b> "
 ---
 
 # Scalable, elastic database and search solution for over 1 billion vectors built on LanceDB and Amazon S3

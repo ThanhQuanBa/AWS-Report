@@ -1,59 +1,32 @@
 ---
 title: "Week 12 Worklog"
-
-weight: 2
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+### Objectives for Week 12:
 
-### Week 12 Objectives:
+- Synthesize and consolidate all knowledge about core AWS services learned over the past 11 weeks.
+- Assess knowledge and identify areas for improvement (Weak Areas).
+- Plan details for the **Final Project** or prepare for AWS certifications.
+- Thoroughly clean up all resources created throughout the internship.
 
-- Connect and get acquainted with members of First Cloud Journey.
-- Understand basic AWS services, how to use the console & CLI.
+### Tasks to be implemented this week:
 
-### Tasks to be carried out this week:
+| Day | Task                                                                                                                                                                                                                                                      | Start Date | Completion Date | Resources                                 |
+| :-- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :---------------------------------------- |
+| 2   | - **Review Core Infrastructure:** Review **IAM, EC2, VPC, S3**. <br> - **Practice:** Manually redraw a complete VPC architecture (Public/Private Subnet) and deploy EC2 with IAM Role.                                                                    | 24/11/2025 | 24/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - **Review Databases & Scaling:** Review **RDS, DynamoDB, ElastiCache, Auto Scaling, ELB**. <br> - **Practice:** Analyze a specific Use-case (e.g., E-commerce) and decide whether to use RDS, DynamoDB, or ElastiCache for each data type.               | 25/11/2025 | 25/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - **Review Serverless & Integration:** Review **Lambda, API Gateway, SQS, SNS, Step Functions**. <br> - **Practice:** Outline an asynchronous workflow for an image processing task using **S3 -> Lambda -> SQS**.                                        | 26/11/2025 | 26/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - **Review Security & Monitoring:** Review **CloudWatch, GuardDuty, WAF, Budget**. <br> - **Practice:** <br>&emsp; + Set up a **Cost Budget** (if not already exists). <br>&emsp; + Create **CloudWatch Alarm** for critical resources (CPU, Disk Usage). | 27/11/2025 | 27/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - **Summary & Plan:** <br> - **Final Resource Cleanup:** Check all Regions to ensure no resources are running (Zero Resource). <br> - Outline **Final Project** or build a roadmap for **AWS Solutions Architect Associate** certification.               | 28/11/2025 | 28/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP <br>                              | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Results achieved in Week 12:
 
-### Week 12 Achievements:
+- **Knowledge Systematization:** Completed review of all major AWS service groups, from Compute, Storage, Database, Networking to Serverless and Security.
+- **Architectural Thinking:** Capable of analyzing application requirements and selecting the most appropriate AWS services to solve the problem.
+- **Cost Management (Most Important):** Ensured the AWS account is completely cleaned (Zero Resource), strictly adhering to cost management principles.
+- **Career Orientation:** Built a clear plan for the next steps (Project, Certification) to continue developing on the Cloud Engineer path.
 
-- Understood what AWS is and mastered the basic service groups:
-
-  - Compute
-  - Storage
-  - Networking
-  - Database
-  - ...
-
-- Successfully created and configured an AWS Free Tier account.
-
-- Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-- Installed and configured AWS CLI on the computer, including:
-
-  - Access Key
-  - Secret Key
-  - Default Region
-  - ...
-
-- Used AWS CLI to perform basic operations such as:
-
-  - Check account & configuration information
-  - Retrieve the list of regions
-  - View EC2 service
-  - Create and manage key pairs
-  - Check information about running services
-  - ...
-
-- Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-- ...
+---

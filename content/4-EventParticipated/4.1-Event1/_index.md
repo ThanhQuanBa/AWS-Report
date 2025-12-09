@@ -1,132 +1,136 @@
 ---
 title: "Event 1"
-
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Event Report: “Vietnam Cloud Day 2025 – Ho Chi Minh City Hybrid Experience”
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+## Event Purpose
 
-### Event Objectives
+Vietnam Cloud Day 2025 provided an opportunity to update participants on the latest trends in cloud computing, application modernization, data, and AI.  
+In Ho Chi Minh City, the program was held in a **hybrid format**, allowing participants to **livestream the plenary session from Hanoi** while engaging in **interactive local discussion sessions**.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+**Key topics included:**
 
-### Speakers
+- **Generative AI:** Enterprise applications and practical use cases
+- **Data Analytics:** Data-driven business transformation
+- **Migration & Modernization:** Pathways for modernizing applications and systems
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+---
 
-### Key Highlights
+## Speakers
 
-#### Identifying the drawbacks of legacy application architecture
+The event featured senior leaders and experts in Cloud, AI, and Fintech:
 
-- Long product release cycles → Lost revenue/missed opportunities
-- Inefficient operations → Reduced productivity, higher costs
-- Non-compliance with security regulations → Security breaches, loss of reputation
+- **Eric Yeo** – Country General Manager, Vietnam, Cambodia, Laos & Myanmar, AWS
+- **Jaime Valles** – Vice President, Commercial Sales & Business Development APJ, AWS
+- **Jeff Johnson** – Managing Director ASEAN, AWS
+- **Dr. Jens Lottner** – Chief Executive Officer, Techcombank
+- **Trang Phung** – CEO, U2U Network
+- **Vu Van** – Co-founder & CEO, ELSA Corp
+- **Nguyen Hoa Binh** – Chairman, Nexttech Group
+- **Dieter Botha** – CEO, Tymex
+- **Nguyen Van Hai** – Director of Software Engineering, Techcombank
+- **Nguyen The Vinh** – Co-Founder & CTO, Ninety Eight
+- **Nguyen Minh Ngan** – AI Specialist, OCB
+- **Nguyen Manh Tuyen** – Head of Data Application, LPBank Securities
 
-#### Transitioning to modern application architecture – Microservices
+---
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+## Key Highlights
 
-- **Queue Management**: Handle asynchronous tasks
-- **Caching Strategy**: Optimize performance
-- **Message Handling**: Flexible inter-service communication
+### 1. Cloud Overview and AWS Vision
 
-#### Domain-Driven Design (DDD)
+- Updates on cloud strategy for Vietnam and the APJ region
+- AWS insights on **AI-first**, **data-driven**, and **modern applications** trends
+- The role of Vietnamese enterprises within the regional Cloud ecosystem
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts
-- **Bookstore case study**: Demonstrates real-world DDD application
-- **Context mapping**: 7 patterns for integrating bounded contexts
+### 2. Generative AI – Trends and Practical Applications
 
-#### Event-Driven Architecture
+- Demonstrations of GenAI use cases in:
+  - Customer support
+  - Operational optimization
+  - Programming assistance
+  - Vietnamese language processing
+- Introduction to Amazon Q and other AWS AI services
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming
-- **Benefits**: Loose coupling, scalability, resilience
-- **Sync vs async comparison**: Understanding the trade-offs
+### 3. Data Analytics & Modern Data Architecture
 
-#### Compute Evolution
+- Building flexible and scalable data infrastructure
+- Applying data in business operations
+- Case studies from banks, fintechs, and startups
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria for appropriate choice
+### 4. Migration & Modernization
 
-#### Amazon Q Developer
+- Guidance on cloud migration using the 7Rs framework
+- Reducing operational costs and accelerating deployment
+- Best practices for application modernization using containers, serverless, and managed services
 
-- **SDLC automation**: From planning to maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+---
 
-### Key Takeaways
+## Key Takeaways
 
-#### Design Mindset
+### Architectural & Strategic Thinking
 
-- **Business-first approach**: Always start from the business domain, not the technology
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams
-- **Bounded contexts**: Identifying and managing complexity in large systems
+- Understand the **business-first approach** in modernization journeys
+- Recognize the importance of **data as a critical enterprise asset**
+- Identify the right timing for **AI and GenAI deployment**
 
-#### Technical Architecture
+### Technical Knowledge
 
-- **Event storming technique**: Practical method for modeling business processes
-- Use **event-driven communication** instead of synchronous calls
-- **Integration patterns**: When to use sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless
+- Designing systems in an **event-driven** and **modular** manner
+- Analyzing trade-offs between synchronous and asynchronous communication
+- Applying serverless and container technologies to optimize performance
+- Cloud migration process and cost optimization
 
-#### Modernization Strategy
+---
 
-- **Phased approach**: No rushing — follow a clear roadmap
-- **7Rs framework**: Multiple modernization paths depending on the application
-- **ROI measurement**: Cost reduction + business agility
+## Workplace Applications
 
-### Applying to Work
+- Standardize modernization thinking using the 7Rs framework
+- Make informed choices between:
+  - EC2
+  - Containers (ECS/EKS)
+  - Fargate
+  - Lambda
+- Build data analytics-driven workflows to support decision-making
+- Leverage Generative AI to automate programming and operational tasks
 
-- **Apply DDD** to current projects: Event storming sessions with business teams
-- **Refactor microservices**: Use bounded contexts to define service boundaries
-- **Implement event-driven patterns**: Replace some sync calls with async messaging
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity
+---
 
-### Event Experience
+## Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending **Vietnam Cloud Day 2025** in a hybrid format in Ho Chi Minh City offered a comprehensive experience:
 
-#### Learning from highly skilled speakers
+### 1. Learning directly from AWS experts and business leaders
 
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.
+- Speakers shared strategic insights on AI, Cloud, and data
+- Real-world examples from banks, startups, and large enterprises
 
-#### Hands-on technical exposure
+### 2. Participating in local discussion sessions
 
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.
+- Interact directly with technical experts
+- Gain deeper understanding of topics like GenAI, Migration, and Data Analytics
 
-#### Leveraging modern tools
+### 3. Experiencing technology first-hand
 
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.
+- Live demo of Amazon Q Developer
+- Case studies on data lakehouse and modern architectures
 
-#### Networking and discussions
+### 4. Networking within the Vietnamese Cloud community
 
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.
+- Exchange experiences with engineers, architects, and industry professionals
+- Gain a clearer understanding of Cloud’s role in Vietnam’s near future
 
-#### Lessons learned
+---
 
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.
+## Event Photos
 
-#### Some event photos
+![Event image](/images/z7308467329886_1db91e8ccbc7c4413ce52d4f28e87997.jpg)
+![Event image](/images/z7308467339415_9c1a3dae4eeb63d793cff60fad019033.jpg)
 
-_Add your event photos here_
+---
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+**Overall, the event provided a comprehensive perspective on AI, data, and application modernization, while expanding my system design thinking and applying AWS technologies to real-world work scenarios.**

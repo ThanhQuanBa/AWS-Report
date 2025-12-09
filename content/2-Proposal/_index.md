@@ -1,3 +1,10 @@
+---
+title: "Proposal"
+weight: 2
+chapter: true
+pre: " <b> 2. </b> "
+---
+
 # Proposal – Smart Resume Analyzer
 
 _A Unified AWS Serverless solution to analyze CVs vs JDs and generate Fit Scores_

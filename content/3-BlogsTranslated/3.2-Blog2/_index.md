@@ -1,8 +1,8 @@
 ---
 title: "Blog 2"
-weight: 1
+weight: 2
 chapter: false
-pre: " <b> 3.1. </b> "
+pre: " <b> 3.2. </b> "
 ---
 
 # **How ​​to Accelerate Security Search Assessments Using Automated Business Context Validation in AWS Security Hub CSPM**

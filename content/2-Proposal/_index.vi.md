@@ -1,3 +1,10 @@
+---
+title: "Proposal"
+weight: 2
+chapter: true
+pre: " <b> 2. </b> "
+---
+
 # Proposal – Smart Resume Analyzer
 
 _Một giải pháp AWS Serverless hợp nhất để phân tích CV so với JD và tạo ra Fit Score_
