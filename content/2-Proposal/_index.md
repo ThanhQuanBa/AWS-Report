@@ -1,140 +1,163 @@
+# Proposal – Smart Resume Analyzer
+
+_A Unified AWS Serverless solution to analyze CVs vs JDs and generate Fit Scores_
+
+> **Note:** This proposal follows the sectioning style of your previous `_index.md` but is rewritten for the Smart Resume Analyzer project.
+
 ---
-title: "Proposal"
 
-weight: 2
-chapter: false
-pre: " <b> 2. </b> "
+## 1) Executive Summary
+
+**Smart Resume Analyzer** is a serverless web platform that evaluates the match between a candidate’s **CV** and a **Job Description (JD)**. It calculates a **Fit Score**, detects **skill gaps**, and provides **personalized learning suggestions**.
+
+The solution is implemented by a 5-member team in **4 weeks** on **AWS**, using managed, pay-as-you-go services to keep demo costs near zero. The UI is built with **Next.js** and hosted on **AWS Amplify**; the backend runs on **API Gateway + Lambda**, together with **DynamoDB**, **S3**, **Comprehend**, **Textract**, and **Cognito**.
+
+**Key outcomes:**
+
+- 90% faster CV screening for demo scenarios
+- Objective Fit Score with visualized reports
+- Actionable learning roadmap for each candidate
+
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+## 2) Problem Statement
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+### 2.1 What’s the problem?
 
-# IoT Weather Platform for Lab Research
+- Recruiters spend significant time manually reading CVs and comparing them to JDs.
+- Candidates lack insight into which skills they are missing and how to improve.
+- Existing tools are costly or not optimized for Vietnamese/SEA use cases.
 
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+### 2.2 The solution
 
-### 1. Executive Summary
+- Upload CV (PDF/DOCX) and JD → automated text extraction + NLP.
+- Detect **skills, experience, education** → compute **Fit Score** vs JD.
+- Recommend **learning pathways** using a custom **SkillOntology** stored in DynamoDB.
+- Secure login with **Cognito** and results shown in a responsive **Next.js** dashboard.
 
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+---
 
-### 2. Problem Statement
+## 3) Solution Architecture (overview)
 
-### What’s the Problem?
+![Solution Architecture Diagram](https://i.ibb.co/ZR0VcspJ/Solution-Architecture.png)
 
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+A fully serverless, event-driven architecture built on AWS.
 
-### The Solution
+**Main components:**
 
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+- **Frontend**: Next.js UI (Amplify Hosting) for upload and results dashboard
+- **API Layer**: Amazon API Gateway → AWS Lambda functions
+- **Processing pipeline**:
+  - `parseResume`: Uses Textract (for scanned PDFs) → normalized text
+  - `nlpAnalyze`: Uses Comprehend → entity and skill detection
+  - `recommendSkills`: Compares against JD + ontology in DynamoDB
+- **Data**: DynamoDB (results, ontology), S3 (uploaded CV/JD)
+- **Identity**: Cognito (JWT-based authentication)
+- **Ops**: AWS SAM for IaC, CI/CD with CodePipeline + CodeBuild, monitoring via CloudWatch
 
-### Benefits and Return on Investment
+---
 
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+## 4) Technical Implementation
 
-### 3. Solution Architecture
+### 4.1 Tech stack
 
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+- **Backend**: .NET 8 (C# Minimal API on Lambda)
+- **Frontend**: Next.js + TailwindCSS (Amplify Hosting)
+- **AWS Services**: Lambda, API Gateway, DynamoDB, S3, Cognito, Comprehend, Textract
+- **Infrastructure as Code**: AWS SAM
+- **CI/CD**: AWS CodeBuild + CodePipeline
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+### 4.2 End-to-end flow
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+1. User signs in via **Cognito** and receives JWT.
+2. Frontend requests a **presigned upload URL** for S3 → uploads CV/JD.
+3. API Gateway triggers **Lambda `parseResume`**:
+   - If scanned PDF → use Textract
+   - Otherwise use direct text extraction
+   - Store processed text in S3
+4. **Lambda `nlpAnalyze`** uses Comprehend to detect entities/skills → saves to DynamoDB
+5. **Lambda `recommendSkills`** retrieves SkillOntology → computes Fit Score + skill gaps
+6. Frontend fetches results through API → visualizes data
 
-### AWS Services Used
+### 4.3 DynamoDB data model (simplified)
 
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+- **Profiles**
 
-### Component Design
+  - PK: `userId`
+  - SK: `profileId`
+  - Stores latest CV parse data
 
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+- **Analyses**
 
-### 4. Technical Implementation
+  - PK: `analysisId`
+  - Fit score, skills matched, skill gaps, timestamps
 
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
+- **SkillOntology**
+  - PK: `skillId`
+  - Attributes: `name`, `tags`, `learningPath[]`
 
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+### 4.4 High-level API design
 
-**Technical Requirements**
+- `POST /upload-url` → get presigned S3 URL
+- `POST /analyze` → trigger complete analysis pipeline
+- `GET /analyses/{id}` → retrieve Fit Score & recommendations
+- `GET /skills/{id}` → optional skill detail endpoint
 
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+---
 
-### 5. Timeline & Milestones
+## 5) Timeline & Milestones (4 weeks)
 
-**Project Timeline**
+| Week | Milestone                    | Deliverables                                        |
+| ---- | ---------------------------- | --------------------------------------------------- |
+| 1    | Foundation                   | SAM template, DynamoDB tables, Cognito, base UI     |
+| 2    | Parsing & NLP                | `parseResume`, `nlpAnalyze`, JD parsing, unit tests |
+| 3    | Recommender & FE integration | `recommendSkills`, dashboard, charts                |
+| 4    | Demo & optimization          | E2E tests, logging, cost tuning, presentation deck  |
 
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-  - Month 1: Study AWS and upgrade hardware.
-  - Month 2: Design and adjust architecture.
-  - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+---
 
-### 6. Budget Estimation
+## 6) Budget Estimation (demo scale)
 
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+Estimated for **< 500 requests/month**:
 
-### Infrastructure Costs
+- **Lambda**: ~$0.02
+- **API Gateway**: ~$0.01
+- **S3**: ~$0.10
+- **DynamoDB**: ~$0.05
+- **Amplify Hosting**: ~$0.30
+- **Comprehend + Textract**: ~$0.40
+- **Cognito**: $0.00
 
-- AWS Services:
-  - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-  - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-  - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-  - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-  - Amazon API Gateway: $0.01/month (2,000 requests).
-  - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-  - AWS Glue Crawlers: $0.07/month (1 crawler).
-  - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+**Total ≈ $0.9 per month (~$10 per year).**
 
-Total: $0.7/month, $8.40/12 months
+---
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+## 7) Security, Risks & Mitigations
 
-### 7. Risk Assessment
+### Security
 
-#### Risk Matrix
+- Private S3 buckets with **SSE-KMS** encryption
+- **IAM least privilege**
+- Backend protected by **Cognito JWT**
+- **PII masking** in logs
+- Lifecycle rules to auto-delete raw files after analysis
 
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+### Risks & mitigations
 
-#### Mitigation Strategies
+- **NLP accuracy issues** → fallback rules, guided input formats
+- **Large/unformatted CVs** → sanitize + file size validation
+- **Unexpected cost increases** → AWS Budget alarms & page caps
 
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+---
 
-#### Contingency Plans
+## 8) Expected Outcomes
 
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- Automated CV–JD comparison with transparent **Fit Score**
+- Detailed visualization of **matched skills, missing skills, and learning path**
+- Serverless, low-ops architecture suitable for demos, scaling, or localization
 
-### 8. Expected Outcomes
+---
 
-#### Technical Improvements:
+## Proposal Document (Google Docs)
 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-
-#### Long-term Value
-
-1-year data foundation for AI research.  
-Reusable for future projects.
+Link: https://docs.google.com/document/d/1ALFieRvZWl1Azg3C8a7L8Z-iL6-chpzS/edit?usp=sharing

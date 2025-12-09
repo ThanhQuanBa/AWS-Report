@@ -1,59 +1,31 @@
 ---
 title: "Worklog Tuần 8"
-
-weight: 1
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 ### Mục tiêu tuần 8:
 
-- Kết nối, làm quen với các thành viên trong First Cloud Journey.
-- Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hiểu rõ kiến trúc, ưu điểm và các thành phần cốt lõi của dịch vụ điện toán phi máy chủ **AWS Lambda**.
+- Thành thạo việc tạo, triển khai và quản lý các hàm Lambda.
+- Nắm vững vai trò và cách cấu hình **Amazon API Gateway** để tạo các API RESTful.
+- Thực hành xây dựng một ứng dụng Serverless đơn giản bằng cách tích hợp Lambda và API Gateway.
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP <br>                    | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                                                                                                                             | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
+| :-- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :-------------- | :---------------------------------------- |
+| 2   | - Đọc và hiểu kiến trúc **AWS Lambda** (Function, Runtime, Handler, Execution Role). <br> - So sánh Serverless (Lambda) với Compute (EC2). <br> - **Thực hành:** Tạo và triển khai một hàm Lambda đơn giản (ví dụ: in ra "Hello World").                                                              | 27/10/2025   | 27/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Tìm hiểu về cơ chế **Event-Driven** trong Lambda. <br> - **Thực hành:** <br>&emsp; + Cấu hình Trigger để Lambda được kích hoạt bởi sự kiện từ S3 (ví dụ: upload file). <br>&emsp; + Cấu hình Lambda để đọc/ghi dữ liệu từ DynamoDB (sử dụng IAM Role).                                              | 28/10/2025   | 28/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Tìm hiểu về dịch vụ **Amazon API Gateway** (REST API, Stage, Resource, Method). <br> - **Thực hành:** Tạo một REST API mới trên API Gateway. <br> - Định nghĩa các Resource và Method cơ bản (ví dụ: GET /items, POST /items).                                                                      | 29/10/2025   | 29/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Tìm hiểu về **Integration Type** (Lambda Proxy Integration) giữa API Gateway và Lambda. <br> - **Thực hành:** <br>&emsp; + Kết nối Method POST /items của API Gateway với hàm Lambda đã tạo ở ngày 2. <br>&emsp; + Deploy API lên một Stage (ví dụ: `prod`) và kiểm tra qua URL công cộng.          | 30/10/2025   | 30/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - **Bảo mật, Giám sát & Dọn dẹp:** <br> - Tìm hiểu về CORS (Cross-Origin Resource Sharing) và cách kích hoạt trên API Gateway. <br> - **Thực hành:** <br>&emsp; + Kích hoạt CORS cho API. <br>&emsp; + Kiểm tra Logs của Lambda trên CloudWatch. <br>&emsp; + Xóa API Gateway, sau đó xóa hàm Lambda. | 31/10/2025   | 31/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 8:
 
-- Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:
-
-  - Compute
-  - Storage
-  - Networking
-  - Database
-  - ...
-
-- Đã tạo và cấu hình AWS Free Tier account thành công.
-
-- Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-- Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-
-  - Access Key
-  - Secret Key
-  - Region mặc định
-  - ...
-
-- Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  - Kiểm tra thông tin tài khoản & cấu hình
-  - Lấy danh sách region
-  - Xem dịch vụ EC2
-  - Tạo và quản lý key pair
-  - Kiểm tra thông tin dịch vụ đang chạy
-  - ...
-
-- Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-- ...
+- **Lambda Nền tảng:** Hiểu rõ mô hình Serverless, thành thạo việc tạo, cấu hình và quản lý hàm Lambda (Function, Role, Runtime).
+- **Event-Driven:** Hiểu cách thức Lambda hoạt động theo sự kiện và đã thực hành tích hợp với các dịch vụ khác như S3 và DynamoDB.
+- **API Gateway:** Nắm vững kiến trúc API Gateway (Resource, Method, Stage) và khả năng tạo các API RESTful.
+- **Xây dựng Serverless:** Triển khai thành công kiến trúc Serverless cơ bản (**API Gateway -> Lambda -> DynamoDB**), một mẫu kiến trúc phổ biến trên AWS.
+- **Bảo mật & Dọn dẹp:** Nắm được cách quản lý Logs Lambda qua CloudWatch và thực hiện dọn dẹp tài nguyên Serverless.

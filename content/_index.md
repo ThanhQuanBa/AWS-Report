@@ -7,10 +7,6 @@ chapter: false
 
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 ### Student Information:
 
 &emsp; **Full Name:** Quan Ba Thanh
@@ -29,7 +25,7 @@ chapter: false
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 06/09/2025 to 28/11/2025
 
 ![Your profile picture](/images/avatar.png)
 

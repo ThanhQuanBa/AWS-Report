@@ -1,6 +1,5 @@
 ---
 title: "Week 1 Worklog"
-
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
@@ -8,48 +7,65 @@ pre: " <b> 1.1. </b> "
 
 ### Week 1 Objectives:
 
-- Connect and get acquainted with members of First Cloud Journey.
-- Understand basic AWS services, how to use the console & CLI.
+- Connect and get acquainted with members of the First Cloud Journey team.
+- Understand basic AWS services and how to create and manage costs with an AWS account.
+- Use AWS Console & CLI to interact with and manage services.
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP <br>                              | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task                                                                                                                                                                                                                                                                                                                                                         | Start Date | Completion Date | Reference Materials                       |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Get to know FCJ members <br> - Read and note the rules and regulations of the internship unit                                                                                                                                                                                                                                                              | 08/09/2025 | 08/09/2025      |
+| 3   | - Learn about AWS and basic service types <br>&emsp; + Compute (EC2) <br>&emsp; + Storage (S3) <br>&emsp; + Networking (VPC) <br>&emsp; + Database (RDS)                                                                                                                                                                                                     | 09/09/2025 | 09/09/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Create AWS Free Tier account <br> - Learn AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Identity & Access Management <br>&emsp; + Install & configure AWS CLI <br>&emsp; + Use AWS CLI for basic operations                                                                                                      | 10/09/2025 | 10/09/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Learn cost management with AWS Budget <br>&emsp; + Cost Budget <br>&emsp; + Usage Budget <br>&emsp; + Reservation (RI) Budget <br>&emsp; + Savings Plans Budget <br> - **Practice:** <br>&emsp; + Create Cost Budget <br>&emsp; + Create Usage Budget <br>&emsp; + Create RI Budget <br>&emsp; + Create Savings Plans Budget <br>&emsp; + Resource Cleanup | 11/09/2025 | 11/09/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Learn AWS Support service <br> - Support plan types: <br>&emsp; + Basic, Developer, Business, Enterprise <br> - Types of support requests: <br>&emsp; + Account & Billing <br>&emsp; + Service Limit Increase <br>&emsp; + Technical Support <br> - **Practice:** <br>&emsp; + Select Basic plan <br>&emsp; + Create support case                          | 12/09/2025 | 12/09/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 1 Achievements:
 
-- Understood what AWS is and mastered the basic service groups:
+- Understood what AWS is and learned core service categories:
 
-  - Compute
-  - Storage
-  - Networking
-  - Database
-  - ...
+  - **Compute:** Provides processing resources like virtual machines and containers.
+  - **Storage:** Used for storing, backing up, and recovering data.
+  - **Networking:** Manages network infrastructure, security, and connectivity.
+  - **Database:** Provides managed relational and NoSQL database services.
 
 - Successfully created and configured an AWS Free Tier account.
+- Learned how to create and manage IAM Groups and Users.
+- Understood IAM login and shared permissions for users in the same group.
 
-- Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Became familiar with AWS Management Console and how to search, access, and use services.
 
-- Installed and configured AWS CLI on the computer, including:
+- Installed and configured AWS CLI, including:
 
   - Access Key
   - Secret Key
   - Default Region
-  - ...
 
-- Used AWS CLI to perform basic operations such as:
+- Used the AWS CLI for basic tasks:
 
-  - Check account & configuration information
-  - Retrieve the list of regions
-  - View EC2 service
-  - Create and manage key pairs
-  - Check information about running services
-  - ...
+  - Check account & config info
+  - List regions
+  - Create/delete S3 Buckets
+  - Use Amazon SNS
+  - Create IAM groups and users
+  - Create/delete access keys
+  - Create basic VPS configuration
+  - Launch and terminate EC2 instances
 
-- Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-- ...
+- Learned how to manage and monitor AWS costs using:
+
+  - Cost Budget
+  - Usage Budget
+  - RI Budget
+  - Savings Plans Budget
+  - Resource cleanup to avoid unnecessary cost
+
+- Understood AWS Support plans and how to create support cases:
+
+  - **Basic:** Free, account & billing support via documentation.
+  - **Developer:** $29/month, basic architectural guidance, unlimited technical support (root user).
+  - **Business:** $100/month, common for SMBs; use-case guidance, AWS Support API, unlimited IAM user support cases.
+  - **Enterprise:** $15,000/month, advanced security, architecture support, strategic guidance, priority case handling.
+
+- Became comfortable using AWS Console and CLI for basic cloud operations.

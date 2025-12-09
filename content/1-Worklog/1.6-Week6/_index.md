@@ -1,59 +1,31 @@
 ---
 title: "Week 6 Worklog"
-
-weight: 1
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 ### Week 6 Objectives:
 
-- Connect and get acquainted with members of First Cloud Journey.
-- Understand basic AWS services, how to use the console & CLI.
+- Understand the architecture and advantages of the NoSQL database **Amazon DynamoDB** (Key-Value/Document model).
+- Become proficient in creating and managing DynamoDB tables and using different types of indexes (GSI/LSI).
+- Master the role of **Amazon ElastiCache** in improving application response times.
+- Practice creating and configuring an ElastiCache Cluster (Redis/Memcached).
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP <br>                              | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task                                                                                                                                                                                                                                                                                       | Start Date | Completion Date | Reference Materials                       |
+| :-- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------- | :---------------------------------------- |
+| 2   | - Read and understand the architecture of **Amazon DynamoDB** (Primary Key, Partition Key, Sort Key). <br> - Learn concepts such as Read/Write Capacity Units (RCU/WCU) and On-Demand mode. <br> - **Practice:** Create your first DynamoDB table, insert data, and perform basic queries. | 13/10/2025 | 13/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Deep dive into Index types: **Local Secondary Index (LSI)** and **Global Secondary Index (GSI)**. <br> - **Practice:** Create a GSI for the DynamoDB table to support non-primary-key queries.                                                                                           | 14/10/2025 | 14/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Learn about the caching service **Amazon ElastiCache** (Redis and Memcached). <br> - Analyze the benefits of using a caching layer to offload traffic from RDS/DynamoDB. <br> - **Practice:** Launch an ElastiCache Cluster (e.g., Redis) in a Private Subnet.                           | 15/10/2025 | 15/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Learn how to **configure Security Groups** for ElastiCache to ensure secure connections from EC2. <br> - Understand how applications connect to and interact with ElastiCache. <br> - **Practice:** Configure the Security Group for the ElastiCache Cluster.                            | 16/10/2025 | 16/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - **Resource Cleanup & Review:** <br> - **Practice:** <br>&emsp; + Delete the created DynamoDB table. <br>&emsp; + Delete the ElastiCache Cluster. <br>&emsp; + Summarize the pros, cons, and use cases of RDS, DynamoDB, and ElastiCache.                                                 | 17/10/2025 | 17/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 6 Achievements:
 
-- Understood what AWS is and mastered the basic service groups:
-
-  - Compute
-  - Storage
-  - Networking
-  - Database
-  - ...
-
-- Successfully created and configured an AWS Free Tier account.
-
-- Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-- Installed and configured AWS CLI on the computer, including:
-
-  - Access Key
-  - Secret Key
-  - Default Region
-  - ...
-
-- Used AWS CLI to perform basic operations such as:
-
-  - Check account & configuration information
-  - Retrieve the list of regions
-  - View EC2 service
-  - Create and manage key pairs
-  - Check information about running services
-  - ...
-
-- Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-- ...
+- **DynamoDB Fundamentals:** Gained a solid understanding of DynamoDB’s NoSQL model and became proficient in creating and managing tables and primary keys.
+- **Query & Cost Optimization:** Understood the role of **GSI/LSI** and capacity modes (On-Demand/Provisioned) in optimizing query performance and cost.
+- **ElastiCache Fundamentals:** Learned the differences and benefits of Redis and Memcached, and the importance of caching in modern architectures.
+- **Caching Deployment:** Successfully launched an ElastiCache Cluster and configured secure network access through Security Groups.
+- **Service Comparison:** Able to differentiate and choose among RDS, DynamoDB, and ElastiCache based on various data and performance requirements.

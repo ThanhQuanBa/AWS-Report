@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 10"
-
-weight: 2
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 ### Mục tiêu tuần 10:
 
-- Kết nối, làm quen với các thành viên trong First Cloud Journey.
-- Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hiểu rõ vai trò và cách thức hoạt động của dịch vụ hàng đợi tin nhắn **Amazon Simple Queue Service (SQS)** (Standard & FIFO).
+- Nắm vững kiến trúc **Publish/Subscribe** với dịch vụ thông báo **Amazon Simple Notification Service (SNS)**.
+- Thành thạo việc tạo và cấu hình các máy trạng thái **AWS Step Functions** để điều phối các dịch vụ AWS.
+- Thực hành xây dựng một quy trình làm việc phi đồng bộ sử dụng SQS, SNS và Lambda.
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP <br>                    | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                                                                                                                                          | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
+| :-- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :-------------- | :---------------------------------------- |
+| 2   | - Đọc và hiểu kiến trúc **Amazon SQS** (Hàng đợi tin nhắn) và sự khác biệt giữa Standard Queue và FIFO Queue. <br> - **Thực hành:** Tạo một SQS Standard Queue, gửi và nhận tin nhắn thủ công qua Console.                                                                                                         | 10/11/2025   | 10/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Tìm hiểu về dịch vụ thông báo **Amazon SNS** (Topic, Subscriber) và mô hình Pub/Sub. <br> - **Thực hành:** <br>&emsp; + Tạo một SNS Topic. <br>&emsp; + Tạo SQS Queue và hàm Lambda (từ tuần 8) làm Subscriber cho Topic này. <br>&emsp; + Gửi tin nhắn đến Topic và kiểm tra xem SQS/Lambda có nhận được không. | 11/11/2025   | 11/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Tìm hiểu về **AWS Step Functions** (State Machine, Task State, Choice State). <br> - **Thực hành:** <br>&emsp; + Tạo một hàm Lambda mới (ví dụ: `ProcessStep1`). <br>&emsp; + Tạo một State Machine đơn giản (chỉ có một bước Task) để gọi hàm Lambda này.                                                       | 12/11/2025   | 12/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Tìm hiểu về cách **Step Functions** điều phối luồng logic (Sequence, Choice, Parallel). <br> - **Thực hành:** Mở rộng State Machine đã tạo: <br>&emsp; + Thêm một bước `Choice` dựa trên kết quả đầu vào. <br>&emsp; + Tích hợp SQS (ví dụ: gửi tin nhắn vào hàng đợi nếu luồng đi theo một nhánh nhất định).    | 13/11/2025   | 13/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - **Dọn dẹp Tài nguyên & Tích hợp Tổng quan:** <br> - **Thực hành:** <br>&emsp; + Xóa State Machine, SQS Queue, SNS Topic. <br>&emsp; + Ôn tập về cách các dịch vụ này (SQS, SNS, Step Functions) giải quyết vấn đề giao tiếp phi đồng bộ và decoupling (tách rời) trong ứng dụng.                                 | 14/11/2025   | 14/11/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 10:
 
-- Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:
-
-  - Compute
-  - Storage
-  - Networking
-  - Database
-  - ...
-
-- Đã tạo và cấu hình AWS Free Tier account thành công.
-
-- Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-- Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-
-  - Access Key
-  - Secret Key
-  - Region mặc định
-  - ...
-
-- Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  - Kiểm tra thông tin tài khoản & cấu hình
-  - Lấy danh sách region
-  - Xem dịch vụ EC2
-  - Tạo và quản lý key pair
-  - Kiểm tra thông tin dịch vụ đang chạy
-  - ...
-
-- Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-- ...
+- **Hàng đợi tin nhắn:** Hiểu rõ vai trò của SQS trong việc **decoupling** và **làm mềm tải** (buffering) ứng dụng. Thành thạo việc gửi/nhận tin nhắn.
+- **Mô hình Pub/Sub:** Nắm được cơ chế **SNS** để phân phối tin nhắn tới nhiều người đăng ký (Subscriber) một cách hiệu quả.
+- **Điều phối luồng công việc:** Hiểu rõ cách **Step Functions** giúp điều phối các dịch vụ AWS khác thành một quy trình làm việc có tổ chức và dễ giám sát.
+- **Xây dựng Hệ thống Phi đồng bộ:** Có khả năng thiết kế kiến trúc ứng dụng sử dụng các dịch vụ tích hợp ứng dụng này để tăng tính linh hoạt và khả năng mở rộng.
