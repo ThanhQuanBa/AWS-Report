@@ -60,7 +60,7 @@ pre: " <b> 4.5. </b> "
 - **Tầm quan trọng của Bảo mật:** Sự kiện nhấn mạnh rằng bảo mật là trách nhiệm chung và phải được tích hợp ngay từ giai đoạn thiết kế (security by design).
 - **Học thông qua Thực hành:** Các Mini Demo về cách validate IAM Policy và ứng phó sự cố rất thiết thực, cho thấy cách các công cụ AWS hoạt động.
 - **Nâng cao Tư duy:** Giúp chuyển từ tư duy "chặn cửa" sang tư duy "phát hiện và ứng phó tự động".
-  ![Event image](/images/5.jpg)
+  ![Event image](/public/images/z7308477584553_ecd987ff188f3d2d404cb60546d4b7bb.jpg)
   ![Event image](/images/4.jpg)
   > Sự kiện này là bắt buộc để tôi có thể xây dựng bất kỳ ứng dụng nào trên AWS một cách an toàn và tuân thủ các tiêu chuẩn cao nhất.
 
